@@ -25,7 +25,7 @@ namespace Benchmark
             get
             {
                 yield return new AndrewDemo.AndrewTaskRunner();
-                yield return new AndrewDemo.AndrewTaskRunner();
+                yield return new LexDemo.LexTaskRunner();
             }
         }
     }

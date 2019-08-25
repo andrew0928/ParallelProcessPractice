@@ -6,8 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AndrewDemo\AndrewDemo.csproj" />
-    <ProjectReference Include="..\LexDemo\LexDemo.csproj" />
     <ProjectReference Include="..\ParallelProcessPractice.Core\ParallelProcessPractice.Core.csproj" />
   </ItemGroup>
 
