@@ -8,7 +8,7 @@ namespace SeanDemo
         static void Main(string[] args)
         {
             TaskRunnerBase runner = new SeanRunner();
-            runner.ExecuteTasks(1);
+            runner.ExecuteTasks(30);
             Console.ReadKey();
         }
     }
