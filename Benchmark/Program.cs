@@ -1,6 +1,7 @@
 ﻿using ParallelProcessPractice.Core;
 using System;
 using System.Collections.Generic;
+using JW;
 
 namespace Benchmark
 {
@@ -17,6 +18,8 @@ namespace Benchmark
                 Console.Error.WriteLine();
                 Console.Error.WriteLine();
             }
+
+            Console.ReadKey();
         }
 
 
@@ -26,6 +29,8 @@ namespace Benchmark
             {
                 yield return new AndrewDemo.AndrewTaskRunner();
                 yield return new LexDemo.LexTaskRunner();
+                yield return new JWTaskRunner();
+                yield return new SeanDemo.SeanRunner();
             }
         }
     }
