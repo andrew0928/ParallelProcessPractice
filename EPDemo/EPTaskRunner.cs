@@ -21,7 +21,6 @@ namespace EPDemo
         public static IEnumerable<MyTask> GogoNstepAsync(IEnumerable<MyTask> tasks, int step)
         {
             List<Task<MyTask>> hohoho = new List<Task<MyTask>>();
-            int index = 0;
             foreach (var task in tasks)
             {
                 var t = Task.Factory.StartNew(() =>
@@ -31,24 +30,34 @@ namespace EPDemo
                 });
                 hohoho.Add(t);
 
-                if (hohoho[index].IsCompleted)
+                if (hohoho.Count >= 4)
                 {
-                    hohoho.RemoveAt(index);
-                    yield return t.GetAwaiter().GetResult();
+                    while (true)
+                    {
+                        var o = hohoho[0];
+                        if (o.IsCompleted)
+                        {
+                            hohoho.RemoveAt(0);
+                            yield return o.Result;
+                        }
+
+                        if (hohoho.Count == 0)
+                        {
+                            break;
+                        }
+                    }
                 }
-                index += 1;
-            }            
+
+
+            }
 
             while (hohoho.Count != 0)
             {
-                for (int i = 0; i < hohoho.Count; i++)
+                var o = hohoho[0];
+                if (o.IsCompleted)
                 {
-                    var oh = hohoho[i];
-                    if (oh.IsCompleted)
-                    {
-                        hohoho.RemoveAt(i);
-                        yield return oh.GetAwaiter().GetResult();
-                    }
+                    hohoho.RemoveAt(0);
+                    yield return o.Result;
                 }
             }
         }

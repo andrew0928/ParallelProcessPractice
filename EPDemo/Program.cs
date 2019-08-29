@@ -8,7 +8,7 @@ namespace EPDemo
         static void Main(string[] args)
         {
             TaskRunnerBase run = new EPTaskRunner();
-            run.ExecuteTasks(100);
+            run.ExecuteTasks(1000);
         }
     }
 }
