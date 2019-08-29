@@ -12,35 +12,44 @@ namespace EPDemo
     {
         public override void Run(IEnumerable<MyTask> tasks)
         {
-            // Parallel.ForEach(tasks, (task) =>
-            // {
-            //     task.DoStepN(1);
-            //     task.DoStepN(2);
-            //     task.DoStepN(3);
-            // });
-            foreach (var oo in RunStepNAsync(RunStepNAsync(RunStepNAsync(tasks, 1), 2), 3));
-        }        
+            foreach (var task in GogoNstepAsync(GogoNstepAsync(GogoNstepAsync(tasks, 1), 2), 3))
+            {
+                ;
+            }
+        }
 
-        public static IEnumerable<MyTask> RunStepNAsync(IEnumerable<MyTask> tasks, int n)
+        public static IEnumerable<MyTask> GogoNstepAsync(IEnumerable<MyTask> tasks, int step)
         {
-            Task<MyTask> workingTask = null;
+            List<Task<MyTask>> hohoho = new List<Task<MyTask>>();
+            int index = 0;
             foreach (var task in tasks)
             {
-                if (workingTask != null)
+                var t = Task.Factory.StartNew(() =>
                 {
-                    yield return workingTask.GetAwaiter().GetResult();
-                }
-
-                workingTask = Task.Run<MyTask>(() =>
-                {
-                    task.DoStepN(n);
+                    task.DoStepN(step);
                     return task;
                 });
-            }
+                hohoho.Add(t);
 
-            if (workingTask != null)
+                if (hohoho[index].IsCompleted)
+                {
+                    hohoho.RemoveAt(index);
+                    yield return t.GetAwaiter().GetResult();
+                }
+                index += 1;
+            }            
+
+            while (hohoho.Count != 0)
             {
-                yield return workingTask.GetAwaiter().GetResult();
+                for (int i = 0; i < hohoho.Count; i++)
+                {
+                    var oh = hohoho[i];
+                    if (oh.IsCompleted)
+                    {
+                        hohoho.RemoveAt(i);
+                        yield return oh.GetAwaiter().GetResult();
+                    }
+                }
             }
         }
     }
