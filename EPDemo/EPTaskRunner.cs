@@ -30,22 +30,35 @@ namespace EPDemo
                 });
                 hohoho.Add(t);
 
-                if (hohoho.Count >= 4)
+                if (hohoho.Count >= 3)
                 {
-                    while (true)
+                    Task.WhenAny(hohoho).Wait();
+                    for (int i = 0; i < hohoho.Count; i++)
                     {
-                        var o = hohoho[0];
-                        if (o.IsCompleted)
+                        if (hohoho[i].IsCompleted)
                         {
-                            hohoho.RemoveAt(0);
-                            yield return o.Result;
-                        }
-
-                        if (hohoho.Count == 0)
-                        {
+                            yield return hohoho[i].Result;
+                            hohoho.RemoveAt(i);
                             break;
                         }
                     }
+                    // int i = 0;
+                    // while (true)
+                    // {
+                    //     var o = hohoho[i];
+                    //     if (o.IsCompleted)
+                    //     {                            
+                    //         yield return o.Result;
+                    //         hohoho.RemoveAt(i);
+                    //         break;
+                    //     }
+                    //     i += 1;           
+
+                    //     if (i >= hohoho.Count)
+                    //     {
+                    //         i = 0;
+                    //     }      
+                    // }
                 }
 
 
@@ -55,9 +68,9 @@ namespace EPDemo
             {
                 var o = hohoho[0];
                 if (o.IsCompleted)
-                {
-                    hohoho.RemoveAt(0);
+                {                    
                     yield return o.Result;
+                    hohoho.RemoveAt(0);
                 }
             }
         }
