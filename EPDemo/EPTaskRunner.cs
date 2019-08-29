@@ -42,23 +42,6 @@ namespace EPDemo
                             break;
                         }
                     }
-                    // int i = 0;
-                    // while (true)
-                    // {
-                    //     var o = hohoho[i];
-                    //     if (o.IsCompleted)
-                    //     {                            
-                    //         yield return o.Result;
-                    //         hohoho.RemoveAt(i);
-                    //         break;
-                    //     }
-                    //     i += 1;           
-
-                    //     if (i >= hohoho.Count)
-                    //     {
-                    //         i = 0;
-                    //     }      
-                    // }
                 }
 
 
