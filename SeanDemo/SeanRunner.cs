@@ -19,7 +19,8 @@ namespace SeanDemo
                     .SetNextPipeLine(new PipeLine<MyTask>(maxCount, x => x.DoStepN(3)));
 
                 pipe.StartPipeLine();
-                SpinWait.SpinUntil(() => pipe.CheckCompleted()); 
+                var isComplete = pipe.WaitForCompletion();
+                Console.WriteLine(isComplete);
             }
         }
     }
@@ -42,15 +43,19 @@ namespace SeanDemo
             return pipeLine;
         }
 
-        public bool CheckCompleted()
+        public bool WaitForCompletion(int millisecondsTimeout = -1)
         {
-            var result = true;
-            var nextPipeLine = NextPipeLine;
-            while (nextPipeLine != null)
+            var result = SpinWait.SpinUntil(() =>
             {
-                result &= nextPipeLine.IsCompleted;
-                nextPipeLine = nextPipeLine.NextPipeLine;
-            }
+                var isCompleted = true;
+                var nextPipeLine = NextPipeLine;
+                while (nextPipeLine != null)
+                {
+                    isCompleted &= nextPipeLine.IsCompleted;
+                    nextPipeLine = nextPipeLine.NextPipeLine;
+                }
+                return isCompleted;
+            }, millisecondsTimeout <= 0 ? int.MaxValue : millisecondsTimeout);
 
             return result;
         }
@@ -93,7 +98,14 @@ namespace SeanDemo
 
         public void AddTask(T task)
         {
-            _blockingCollection.Add(task);
+            try
+            {
+                _blockingCollection?.Add(task);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
         public PipeLine<T> SetNextPipeLine(PipeLine<T> pipeLine)
@@ -107,14 +119,21 @@ namespace SeanDemo
             Task.Run(() =>
             {
                 var currentCount = 0;
-                while (_blockingCollection.IsAddingCompleted == false)
+                try
                 {
-                    var task = _blockingCollection.Take();
-                    _action(task);
-                    NextPipeLine?.AddTask(task);
-                    currentCount++;
-                    if (currentCount == _maxTaskCount)
-                        _blockingCollection.CompleteAdding();
+                    while (_blockingCollection.IsAddingCompleted == false)
+                    {
+                        var task = _blockingCollection.Take();
+                        _action(task);
+                        NextPipeLine?.AddTask(task);
+                        currentCount++;
+                        if (currentCount == _maxTaskCount)
+                            _blockingCollection.CompleteAdding();
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
                 }
             });
         }
