@@ -6,11 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AndrewDemo\AndrewDemo.csproj" />
-    <ProjectReference Include="..\JWDemo\JWDemo.csproj" />
-    <ProjectReference Include="..\LexDemo\LexDemo.csproj" />
+    <PackageReference Include="System.Reactive" Version="4.1.6" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ParallelProcessPractice.Core\ParallelProcessPractice.Core.csproj" />
-    <ProjectReference Include="..\PhoenixDemo\PhoenixDemo.csproj" />
   </ItemGroup>
 
 </Project>
