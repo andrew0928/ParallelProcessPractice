@@ -1,7 +1,7 @@
 ﻿using System;
 using ParallelProcessPractice.Core;
 
-namespace ChannelSolution
+namespace JulianDemo
 {
     class Program
     {
