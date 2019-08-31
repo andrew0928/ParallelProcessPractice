@@ -20,6 +20,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benchmark", "Benchmark\Benc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JWDemo", "JWDemo\JWDemo.csproj", "{5DFBA852-6672-4F02-A6F6-CFFF7DB323F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JulianDemo", "JulianDemo\JulianDemo.csproj", "{67E722A1-5BCF-49E6-AF32-4544CE3B4FD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,10 @@ Global
 		{5DFBA852-6672-4F02-A6F6-CFFF7DB323F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DFBA852-6672-4F02-A6F6-CFFF7DB323F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DFBA852-6672-4F02-A6F6-CFFF7DB323F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67E722A1-5BCF-49E6-AF32-4544CE3B4FD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67E722A1-5BCF-49E6-AF32-4544CE3B4FD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67E722A1-5BCF-49E6-AF32-4544CE3B4FD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67E722A1-5BCF-49E6-AF32-4544CE3B4FD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
