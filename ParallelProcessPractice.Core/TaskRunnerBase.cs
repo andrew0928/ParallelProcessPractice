@@ -1,7 +1,4 @@
-﻿//#define ENABLE_MONITOR_THREAD
-//#define ENABLE_CONTEXT_SWITCH_SIMULATION
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -36,13 +33,19 @@ namespace ParallelProcessPractice.Core
 
             private Dictionary<int, (int seed, int step)> _thread_task_step_map = new Dictionary<int, (int seed, int step)>();
 
+            private string[] _step_context_buffer_handlers = { null, null, null, null };
+
             private object _syncroot = new object();
 
             private void EnterStep(int seed, int step)
             {
                 lock (this._syncroot)
                 {
-                    Interlocked.Increment(ref this._dostep_enter_counts[step]);
+                    if (Interlocked.Increment(ref this._dostep_enter_counts[step]) == 1)
+                    {
+                        // first
+                        this._step_context_buffer_handlers[step] = this.AllocateBuffer(PracticeSettings.TASK_STEP_CONTEXT_BUFFER[step]);
+                    }
 
                     int mtid = Thread.CurrentThread.ManagedThreadId;
 
@@ -67,7 +70,12 @@ namespace ParallelProcessPractice.Core
                 {
                     int mtid = Thread.CurrentThread.ManagedThreadId;
 
-                    Interlocked.Increment(ref this._dostep_exit_counts[step]);
+                    if (Interlocked.Increment(ref this._dostep_exit_counts[step]) == 100)
+                    {
+                        // last task
+                        this.FreeBuffer(this._step_context_buffer_handlers[step]);
+                    }
+
                     this._thread_task_step_map.Remove(mtid);
 
 

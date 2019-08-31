@@ -8,7 +8,7 @@ namespace ParallelProcessPractice.Core
     {
         public const int TASK_TOTAL_STEPS = 3;
 
-        public const int WIP_WORKSET_SIZE = 128; //256 * 1024 * 1024;
+        //public const int WIP_WORKSET_SIZE = 128; //256 * 1024 * 1024;
 
         public static readonly int[] TASK_STEPS_BUFFER =
         {
