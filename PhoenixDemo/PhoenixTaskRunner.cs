@@ -42,6 +42,7 @@ namespace PhoenixDemo
 						Task.Run(() => t.DoStepN(1))
 							.ContinueWith(_ =>
 							{
+								m_Semaphore2.Wait();
 								m_Semaphore1.Release();
 								m_Pipe2.Add(t);
 								lock (locked)
@@ -62,14 +63,13 @@ namespace PhoenixDemo
 
 				foreach (var t in m_Pipe2.GetConsumingEnumerable())
 				{
-					m_Semaphore2.Wait();
-
 					lock (locked)
 					{
 						count++;
 						Task.Run(() => t.DoStepN(2))
 							.ContinueWith(_ =>
 							{
+								m_Semaphore3.Wait();
 								m_Semaphore2.Release();
 								m_Pipe3.Add(t);
 
@@ -95,7 +95,6 @@ namespace PhoenixDemo
 
 				foreach (var t in m_Pipe3.GetConsumingEnumerable())
 				{
-					m_Semaphore3.Wait();
 					lock (locked)
 					{
 						count++;
@@ -129,6 +128,7 @@ namespace PhoenixDemo
 					.Run(() => t.DoStepN(1))
 					.ContinueWith(_ =>
 					{
+						m_Semaphore2.Wait();
 						m_Semaphore1.Release();
 						return t;
 					});
@@ -136,12 +136,11 @@ namespace PhoenixDemo
 			.SelectMany(t => t)
 			.Select(t =>
 			{
-				m_Semaphore2.Wait();
-
 				return Task
 					.Run(() => t.DoStepN(2))
 					.ContinueWith(_ =>
 					{
+						m_Semaphore3.Wait();
 						m_Semaphore2.Release();
 						return t;
 					});
@@ -149,8 +148,6 @@ namespace PhoenixDemo
 			.SelectMany(t => t)
 			.Select(t =>
 			{
-				m_Semaphore3.Wait();
-
 				return Task
 					.Run(() => t.DoStepN(3))
 					.ContinueWith(_ =>
