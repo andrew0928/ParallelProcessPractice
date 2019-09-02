@@ -11,6 +11,7 @@
     <ProjectReference Include="..\JWDemo\JWDemo.csproj" />
     <ProjectReference Include="..\LexDemo\LexDemo.csproj" />
     <ProjectReference Include="..\ParallelProcessPractice.Core\ParallelProcessPractice.Core.csproj" />
+    <ProjectReference Include="..\SeanDemo\SeanDemo.csproj" />
   </ItemGroup>
 
 </Project>
