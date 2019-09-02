@@ -7,6 +7,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AndrewDemo\AndrewDemo.csproj" />
+    <ProjectReference Include="..\EPDemo\EPDemo.csproj" />
+    <ProjectReference Include="..\JWDemo\JWDemo.csproj" />
     <ProjectReference Include="..\LexDemo\LexDemo.csproj" />
     <ProjectReference Include="..\ParallelProcessPractice.Core\ParallelProcessPractice.Core.csproj" />
   </ItemGroup>

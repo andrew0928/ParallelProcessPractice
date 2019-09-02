@@ -26,6 +26,8 @@ namespace Benchmark
             {
                 yield return new AndrewDemo.AndrewTaskRunner();
                 yield return new LexDemo.LexTaskRunner();
+                yield return new EPDemo.EPTaskRunner();
+                yield return new JW.JWTaskRunner();
             }
         }
     }
