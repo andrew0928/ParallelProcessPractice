@@ -1,7 +1,6 @@
 ﻿using ParallelProcessPractice.Core;
 using System;
 using System.Collections.Generic;
-using JW;
 
 namespace Benchmark
 {
