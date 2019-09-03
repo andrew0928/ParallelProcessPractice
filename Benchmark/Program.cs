@@ -33,6 +33,7 @@ namespace Benchmark
                 yield return new JW.JWTaskRunner();
                 yield return new PhoenixDemo.PhoenixTaskRunner();
                 yield return new JulianDemo.TaskRunner();
+                yield return new GuluDemo.GuluTaskRunner();
             }
         }
     }

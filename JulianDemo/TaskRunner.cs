@@ -21,7 +21,9 @@ namespace JulianDemo
             Task.WaitAll(processStep1, processStep2, processStep3);
         }
 
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         private static async Task ProcessStep1(ChannelWriter<MyTask> writer, IEnumerable<MyTask> tasks)
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
             var ts =tasks.Select(async t => await Task.Run(
                 async () => {
