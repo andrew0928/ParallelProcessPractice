@@ -17,7 +17,7 @@ namespace GuluDemo
             //var worker = new BlockingCollectionWorker(tasks, 3);
             //worker.DoWork();
 
-            var worker = new Worker(tasks, 6);
+            var worker = new Worker(tasks, 3);
             worker.DoWork();
         }
 
