@@ -7,8 +7,8 @@ namespace JW
     {
         static void Main(string[] args) {
 
-            TaskRunnerBase runner = new JWTaskRunner();
-            runner.ExecuteTasks(1000);
+            TaskRunnerBase runner = new JWTaskRunnerV5();
+            runner.ExecuteTasks(30);
         }
     }
 }

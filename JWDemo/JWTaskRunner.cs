@@ -11,10 +11,10 @@ namespace JW
         public override void Run(IEnumerable<MyTask> tasks)
         {
             //若TASK_STEPS_CONCURRENT_LIMIT有調整,該參數也要跟著改
-            int maxConcurentTasks = 5 + 3 + 3;
+            //int maxConcurentTasks = 5 + 3 + 3;
 
-            ThreadPool.SetMinThreads(maxConcurentTasks, maxConcurentTasks);
-            ThreadPool.SetMaxThreads(maxConcurentTasks, maxConcurentTasks);
+            //ThreadPool.SetMinThreads(maxConcurentTasks, maxConcurentTasks);
+            //ThreadPool.SetMaxThreads(maxConcurentTasks, maxConcurentTasks);
 
             using (ManualResetEvent resetEvent = new ManualResetEvent(false))
             {
@@ -34,13 +34,13 @@ namespace JW
                     //ThreadPool.QueueUserWorkItem(new WaitCallback(DoSomething), task);
                     ThreadPool.QueueUserWorkItem(new WaitCallback(x =>
                     {
-                        Console.WriteLine(((MyTask)x).ID + " start....1");
+                        //Console.WriteLine(((MyTask)x).ID + " start....1");
                         ((MyTask)x).DoStepN(1);
 
-                        Console.WriteLine(((MyTask)x).ID + " start....2");
+                        //Console.WriteLine(((MyTask)x).ID + " start....2");
                         ((MyTask)x).DoStepN(2);
 
-                        Console.WriteLine(((MyTask)x).ID + " start....3");
+                        //Console.WriteLine(((MyTask)x).ID + " start....3");
                         ((MyTask)x).DoStepN(3);
 
                         if (Interlocked.Decrement(ref toProcess) == 0)
