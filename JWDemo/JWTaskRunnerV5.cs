@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,17 +18,10 @@ namespace JW
             ThreadPool.SetMinThreads(maxConcurentTasks, maxConcurentTasks);
             ThreadPool.SetMaxThreads(maxConcurentTasks, maxConcurentTasks);
 
-            int toProcess = 0;
+            int toProcess = Enumerable.Count(tasks);
 
             Queue.Init();
 
-            //initial Step 1 in queue
-            foreach (MyTask task in tasks)
-            {
-                Queue.Produce(1, task);
-
-                Interlocked.Increment(ref toProcess);
-            }
 
             using (ManualResetEvent resetEvent = new ManualResetEvent(false))
             {
@@ -46,6 +41,12 @@ namespace JW
                 {
                     JobWorker jobWorker3 = new JobWorker(3, 3, toProcess, resetEvent);
                 });
+
+                //initial Step 1 in queue
+                foreach (MyTask task in tasks)
+                {
+                    Queue.Produce(1, task);
+                }
 
                 resetEvent.WaitOne();
             }
@@ -88,7 +89,11 @@ namespace JW
 
                 while (true)
                 {
+                    //Stopwatch stopwatch = new Stopwatch();
+                    //stopwatch.Start();
                     MyTask task = Queue.Poll(whichStep);
+                    //stopwatch.Stop();
+                    //Console.WriteLine(whichStep + " poll..." + stopwatch.ElapsedMilliseconds);
 
                     semaphore.WaitOne();
 
@@ -109,7 +114,11 @@ namespace JW
 
                 while (true)
                 {
+                    //Stopwatch stopwatch = new Stopwatch();
+                    //stopwatch.Start();
                     MyTask task = Queue.Poll(whichStep);
+                    //stopwatch.Stop();
+                    //Console.WriteLine(whichStep + " poll..." + stopwatch.ElapsedMilliseconds);
 
                     semaphore.WaitOne();
 

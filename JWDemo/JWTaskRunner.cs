@@ -11,10 +11,10 @@ namespace JW
         public override void Run(IEnumerable<MyTask> tasks)
         {
             //若TASK_STEPS_CONCURRENT_LIMIT有調整,該參數也要跟著改
-            //int maxConcurentTasks = 5 + 3 + 3;
+            int maxConcurentTasks = 5 + 3 + 3;
 
-            //ThreadPool.SetMinThreads(maxConcurentTasks, maxConcurentTasks);
-            //ThreadPool.SetMaxThreads(maxConcurentTasks, maxConcurentTasks);
+            ThreadPool.SetMinThreads(maxConcurentTasks, maxConcurentTasks);
+            ThreadPool.SetMaxThreads(maxConcurentTasks, maxConcurentTasks);
 
             using (ManualResetEvent resetEvent = new ManualResetEvent(false))
             {

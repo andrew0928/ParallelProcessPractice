@@ -16,6 +16,9 @@ namespace JW
     {
         public override void Run(IEnumerable<MyTask> tasks)
         {
+            int maxConcurentTasks = (5 + 3 + 3) + 0;
+            ThreadPool.SetMinThreads(maxConcurentTasks, maxConcurentTasks);
+            ThreadPool.SetMaxThreads(maxConcurentTasks, maxConcurentTasks);
 
             int toProcess = 0;
 
