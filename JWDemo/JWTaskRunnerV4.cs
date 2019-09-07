@@ -62,7 +62,9 @@ namespace JW
                               semaphore1.Release();
                           });
                       }
+#pragma warning disable CS0162 // Unreachable code detected
                       Console.WriteLine("bc1 complete!!!!!!");
+#pragma warning restore CS0162 // Unreachable code detected
                   });
 
 
@@ -89,7 +91,9 @@ namespace JW
                              semaphore2.Release();
                          });
                      }
+#pragma warning disable CS0162 // Unreachable code detected
                      Console.WriteLine("bc2 complete!!!!!!");
+#pragma warning restore CS0162 // Unreachable code detected
                  });
 
 
@@ -116,7 +120,9 @@ namespace JW
                         });
 
                     }
+#pragma warning disable CS0162 // Unreachable code detected
                     Console.WriteLine("bc3 complete!!!!!!");
+#pragma warning restore CS0162 // Unreachable code detected
                 });
 
 
