@@ -34,13 +34,13 @@ namespace JW
                     //ThreadPool.QueueUserWorkItem(new WaitCallback(DoSomething), task);
                     ThreadPool.QueueUserWorkItem(new WaitCallback(x =>
                     {
-                        Console.WriteLine(((MyTask)x).ID + " start....1");
+                        //Console.WriteLine(((MyTask)x).ID + " start....1");
                         ((MyTask)x).DoStepN(1);
 
-                        Console.WriteLine(((MyTask)x).ID + " start....2");
+                        //Console.WriteLine(((MyTask)x).ID + " start....2");
                         ((MyTask)x).DoStepN(2);
 
-                        Console.WriteLine(((MyTask)x).ID + " start....3");
+                        //Console.WriteLine(((MyTask)x).ID + " start....3");
                         ((MyTask)x).DoStepN(3);
 
                         if (Interlocked.Decrement(ref toProcess) == 0)

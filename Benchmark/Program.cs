@@ -31,10 +31,10 @@ namespace Benchmark
                 yield return new LexDemo.LexTaskRunner();
                 yield return new SeanDemo.SeanRunner();
                 yield return new EPDemo.EPTaskRunner();
-                yield return new JW.JWTaskRunner();
                 yield return new PhoenixDemo.PhoenixTaskRunner();
                 yield return new JulianDemo.TaskRunner();
                 yield return new GuluDemo.GuluTaskRunner();
+                yield return new JW.JWTaskRunnerV5();
             }
         }
     }
