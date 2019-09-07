@@ -18,6 +18,7 @@ namespace Benchmark
                 Console.Error.WriteLine();
             }
 
+            Console.WriteLine("Press [ENTER] to exit...");
             Console.ReadKey();
         }
 
