@@ -1,6 +1,7 @@
 ﻿using ParallelProcessPractice.Core;
 using System;
 using System.Collections.Generic;
+using MazeDemo;
 
 namespace Benchmark
 {
@@ -8,7 +9,7 @@ namespace Benchmark
     {
         static void Main(string[] args)
         {
-            foreach(var run in Runners)
+            foreach (var run in Runners)
             {
                 Console.Error.WriteLine($"==========================================================");
                 Console.Error.WriteLine($"Runner: {run.GetType().FullName}");
@@ -22,7 +23,6 @@ namespace Benchmark
             Console.ReadKey();
         }
 
-
         static IEnumerable<TaskRunnerBase> Runners
         {
             get
@@ -35,6 +35,7 @@ namespace Benchmark
                 yield return new JulianDemo.TaskRunner();
                 yield return new GuluDemo.GuluTaskRunner();
                 yield return new JW.JWTaskRunnerV5();
+                yield return new MazeTaskRunner();
             }
         }
     }
