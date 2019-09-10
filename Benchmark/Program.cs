@@ -35,6 +35,7 @@ namespace Benchmark
                 yield return new JulianDemo.TaskRunner();
                 yield return new GuluDemo.GuluTaskRunner();
                 yield return new JW.JWTaskRunnerV5();
+                yield return new AndyDemo.AndyTaskRunner();
             }
         }
     }
