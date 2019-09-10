@@ -34,6 +34,7 @@ namespace Benchmark
                 yield return new PhoenixDemo.PhoenixTaskRunner();
                 yield return new JulianDemo.TaskRunner();
                 yield return new GuluDemo.GuluTaskRunner();
+                yield return new AndyDemo.AndyTaskRunner();
             }
         }
     }

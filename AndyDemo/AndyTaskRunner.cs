@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AndyDemo
 {
-    public class AndrewTaskRunner : TaskRunnerBase
+    public class AndyTaskRunner : TaskRunnerBase
     {
         public SemaphoreSlim sem_1 = new SemaphoreSlim(5);
         public SemaphoreSlim sem_2 = new SemaphoreSlim(3);

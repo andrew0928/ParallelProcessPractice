@@ -11,8 +11,8 @@ namespace AndyDemo
     {
         static void Main(string[] args)
         {
-            TaskRunnerBase run = new AndrewTaskRunner();
-            run.ExecuteTasks(1000);
+            TaskRunnerBase run = new AndyTaskRunner();
+            run.ExecuteTasks(30);
         }
 
     }
