@@ -8,7 +8,7 @@ namespace Benchmark
     {
         static void Main(string[] args)
         {
-            foreach(var run in Runners)
+            foreach (var run in Runners)
             {
                 Console.Error.WriteLine($"==========================================================");
                 Console.Error.WriteLine($"Runner: {run.GetType().FullName}");
@@ -21,7 +21,6 @@ namespace Benchmark
             Console.WriteLine("Press [ENTER] to exit...");
             Console.ReadKey();
         }
-
 
         static IEnumerable<TaskRunnerBase> Runners
         {
@@ -36,6 +35,7 @@ namespace Benchmark
                 yield return new GuluDemo.GuluTaskRunner();
                 yield return new JW.JWTaskRunnerV5();
                 yield return new AndyDemo.AndyTaskRunner();
+                yield return new MazeDemo.MazeTaskRunner();
             }
         }
     }
