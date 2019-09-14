@@ -11,8 +11,13 @@ namespace AndrewDemo
     {
         static void Main(string[] args)
         {
-            TaskRunnerBase run = new AndrewTaskRunner();
-            run.ExecuteTasks(100);
+            TaskRunnerBase run =
+                //new AndrewBasicTaskRunner1();
+                //new AndrewBasicTaskRunner2();
+                //new AndrewThreadTaskRunner1();
+                new AndrewPipelineTaskRunner1();
+                //new AndrewPipelineTaskRunner2();
+            run.ExecuteTasks(1000);
         }
 
     }

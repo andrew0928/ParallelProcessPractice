@@ -161,8 +161,8 @@ namespace ParallelProcessPractice.Core
 
             internal void MonitorWorker(string path, ManualResetEvent readyRunWait, CancellationTokenSource cancel)
             {
-                int threads_count = 30;
-                int monitor_sample_time = 30;
+                int threads_count = 100;
+                int monitor_sample_time = 20;
                 int[] idmap = new int[threads_count];
                 HashSet<int> idset = new HashSet<int>();
 
