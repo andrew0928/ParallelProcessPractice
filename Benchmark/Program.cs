@@ -13,20 +13,19 @@ namespace Benchmark
                 Console.Error.WriteLine($"==========================================================");
                 Console.Error.WriteLine($"Runner: {run.GetType().FullName}");
                 Console.Error.WriteLine($"==========================================================");
-                run.ExecuteTasks(30);
+                run.ExecuteTasks(1000);
                 Console.Error.WriteLine();
                 Console.Error.WriteLine();
             }
 
-            Console.WriteLine("Press [ENTER] to exit...");
-            Console.ReadKey();
+            //Console.WriteLine("Press [ENTER] to exit...");
+            //Console.ReadKey();
         }
 
         static IEnumerable<TaskRunnerBase> Runners
         {
             get
             {
-                yield return new AndrewDemo.AndrewTaskRunner();
                 yield return new LexDemo.LexTaskRunner();
                 yield return new SeanDemo.SeanRunner();
                 yield return new EPDemo.EPTaskRunner();
@@ -36,6 +35,18 @@ namespace Benchmark
                 yield return new JW.JWTaskRunnerV5();
                 yield return new AndyDemo.AndyTaskRunner();
                 yield return new MazeDemo.MazeTaskRunner();
+
+                yield return new AndrewDemo.AndrewBasicTaskRunner1();
+                yield return new AndrewDemo.AndrewBasicTaskRunner2();
+                yield return new AndrewDemo.AndrewThreadTaskRunner1();
+                yield return new AndrewDemo.AndrewPipelineTaskRunner1();
+                yield return new AndrewDemo.AndrewPipelineTaskRunner2();
+
+                yield return new BorisDemo.BorisTaskRunner(5, 3, 3);
+                yield return new JolinDemo.JolinTaskRunner(3, 5, 3, 3);
+                yield return new LeviDemo.LeviTaskRunner();
+
+
             }
         }
     }
