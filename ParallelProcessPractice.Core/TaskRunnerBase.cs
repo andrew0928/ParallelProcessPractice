@@ -328,6 +328,13 @@ namespace ParallelProcessPractice.Core
             Console.Error.WriteLine($"  - Complete Step #2: {this._context._dostep_exit_counts[2]}");
             Console.Error.WriteLine($"  - Complete Step #3: {this._context._dostep_exit_counts[3]}");
 
+            string execute_log_filepath = @"execute-log.csv";
+            if (File.Exists(execute_log_filepath) == false)
+            {
+                File.WriteAllText(execute_log_filepath, $"TEST_DT,RunnerName,WIP_ALL,WIP1,WIP2,WIP3,MEM_PEAK,CONTEXT_SWITCH_COUNT,TTFT,TTLT,AVG_WAIT\n");
+            }
+            File.AppendAllText(execute_log_filepath, $"{DateTime.Now},{this.GetType().FullName},{this._context._dostep_wip_max[0]},{this._context._dostep_wip_max[1]},{this._context._dostep_wip_max[2]},{this._context._dostep_wip_max[3]},{this._context._allocated_memory_peak},{this._context._dostep_thread_step_switch_count},{this._context._time_to_first_task_complete.TotalMilliseconds},{this._context._time_to_last_task_complete.TotalMilliseconds},{this._context._total_leadtime.TotalMilliseconds / taskCount}\n");
+
             if (occurs != null)
             {
                 Console.Error.WriteLine();
