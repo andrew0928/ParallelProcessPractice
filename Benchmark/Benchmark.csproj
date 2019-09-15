@@ -8,10 +8,13 @@
   <ItemGroup>
     <ProjectReference Include="..\AndrewDemo\AndrewDemo.csproj" />
     <ProjectReference Include="..\AndyDemo\AndyDemo.csproj" />
+    <ProjectReference Include="..\BorisDemo\BorisDemo.csproj" />
     <ProjectReference Include="..\EPDemo\EPDemo.csproj" />
     <ProjectReference Include="..\GuluDemo\GuluDemo.csproj" />
+    <ProjectReference Include="..\JolinDemo\JolinDemo.csproj" />
     <ProjectReference Include="..\JulianDemo\JulianDemo.csproj" />
     <ProjectReference Include="..\JWDemo\JWDemo.csproj" />
+    <ProjectReference Include="..\LeviDemo\LeviDemo.csproj" />
     <ProjectReference Include="..\LexDemo\LexDemo.csproj" />
     <ProjectReference Include="..\MazeDemo\MazeDemo.csproj" />
     <ProjectReference Include="..\ParallelProcessPractice.Core\ParallelProcessPractice.Core.csproj" />
