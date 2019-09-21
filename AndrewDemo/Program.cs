@@ -15,8 +15,10 @@ namespace AndrewDemo
                 //new AndrewBasicTaskRunner1();
                 //new AndrewBasicTaskRunner2();
                 //new AndrewThreadTaskRunner1();
-                new AndrewPipelineTaskRunner1();
+                //new AndrewPipelineTaskRunner1();
                 //new AndrewPipelineTaskRunner2();
+                //new AndrewThreadTaskRunner2();
+                new AndrewPipelineTaskRunner3();
             run.ExecuteTasks(1000);
         }
 

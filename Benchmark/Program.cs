@@ -26,6 +26,7 @@ namespace Benchmark
         {
             get
             {
+                yield return new NathanDemo.NathanTaskRunner();
                 yield return new LexDemo.LexTaskRunner();
                 yield return new SeanDemo.SeanRunner();
                 yield return new EPDemo.EPTaskRunner();

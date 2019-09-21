@@ -17,6 +17,7 @@
     <ProjectReference Include="..\LeviDemo\LeviDemo.csproj" />
     <ProjectReference Include="..\LexDemo\LexDemo.csproj" />
     <ProjectReference Include="..\MazeDemo\MazeDemo.csproj" />
+    <ProjectReference Include="..\NathanDemo\NathanDemo.csproj" />
     <ProjectReference Include="..\ParallelProcessPractice.Core\ParallelProcessPractice.Core.csproj" />
     <ProjectReference Include="..\PhoenixDemo\PhoenixDemo.csproj" />
     <ProjectReference Include="..\SeanDemo\SeanDemo.csproj" />
