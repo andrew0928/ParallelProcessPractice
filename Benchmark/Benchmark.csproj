@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Threading.Channels" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AndrewDemo\AndrewDemo.csproj" />
     <ProjectReference Include="..\AndyDemo\AndyDemo.csproj" />
     <ProjectReference Include="..\BorisDemo\BorisDemo.csproj" />
