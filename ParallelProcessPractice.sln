@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NathanDemo", "NathanDemo\Na
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JolinDemo", "JolinDemo\JolinDemo.csproj", "{C58EA4C0-FFEC-43D6-97ED-EF755AE14B64}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnthonyDemo", "AnthonyDemo\AnthonyDemo.csproj", "{7B76A23F-BD8D-41C7-8207-9EB72BC54898}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{C58EA4C0-FFEC-43D6-97ED-EF755AE14B64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C58EA4C0-FFEC-43D6-97ED-EF755AE14B64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C58EA4C0-FFEC-43D6-97ED-EF755AE14B64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B76A23F-BD8D-41C7-8207-9EB72BC54898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B76A23F-BD8D-41C7-8207-9EB72BC54898}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B76A23F-BD8D-41C7-8207-9EB72BC54898}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B76A23F-BD8D-41C7-8207-9EB72BC54898}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -136,6 +142,7 @@ Global
 		{1B34613F-9384-4365-A54E-D9719D6E902B} = {B21D6D24-8EC2-497F-AE16-E0155FEE28CE}
 		{CD021A28-2C35-4FAA-BFDC-3E4543F009A0} = {B21D6D24-8EC2-497F-AE16-E0155FEE28CE}
 		{C58EA4C0-FFEC-43D6-97ED-EF755AE14B64} = {B21D6D24-8EC2-497F-AE16-E0155FEE28CE}
+		{7B76A23F-BD8D-41C7-8207-9EB72BC54898} = {B21D6D24-8EC2-497F-AE16-E0155FEE28CE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {15051360-3A56-4052-A944-97C62F90EEC6}
