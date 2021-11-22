@@ -12,6 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AndrewDemo\AndrewDemo.csproj" />
     <ProjectReference Include="..\AndyDemo\AndyDemo.csproj" />
+    <ProjectReference Include="..\AnthonyDemo\AnthonyDemo.csproj" />
     <ProjectReference Include="..\BorisDemo\BorisDemo.csproj" />
     <ProjectReference Include="..\EPDemo\EPDemo.csproj" />
     <ProjectReference Include="..\GuluDemo\GuluDemo.csproj" />

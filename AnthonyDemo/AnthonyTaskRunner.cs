@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace AnthonyDemo
 {
-    internal class AnthonyTaskRunner : TaskRunnerBase
+    public class AnthonyTaskRunner : TaskRunnerBase
     {
         private IWorker worker1;
         private IWorker worker2;
@@ -27,7 +27,7 @@ namespace AnthonyDemo
             worker3.Receive(3);
         }
 
-        private void WaitAllTaskFinished(int count)
+        private void WaitAllTaskFinished()
         {
             while (worker1.IsFinished == false ||
                    worker2.IsFinished == false ||
@@ -40,7 +40,7 @@ namespace AnthonyDemo
         public override void Run(IEnumerable<MyTask> tasks)
         {
             InitWorker(tasks);
-            WaitAllTaskFinished(tasks.Count());
+            WaitAllTaskFinished();
         }
     }
 }
